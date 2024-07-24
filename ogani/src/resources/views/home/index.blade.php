@@ -1,0 +1,38 @@
+@extends('layouts.user')
+@section('title', 'Ogani')
+@section('content')
+    <!-- Categories Section Begin -->
+    @include('sections.category')
+    <!-- Categories Section End -->
+
+    <!-- Featured Section Begin -->
+    @include('sections.featuredProduct')
+    <!-- Featured Section End -->
+
+    <!-- Banner Begin -->
+    <div class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                        <img src="{{ asset('user/img/banner/banner-1.jpg') }}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                        <img src="{{ asset('user/img/banner/banner-2.jpg') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+    <!-- Latest Product Section Begin -->
+    @include('sections.slideProduct')
+    <!-- Latest Product Section End -->
+
+    <!-- Blog Section Begin -->
+    @include('sections.blogIndex')
+    <!-- Blog Section End -->
+@endsection
