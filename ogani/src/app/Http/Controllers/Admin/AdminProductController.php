@@ -60,10 +60,15 @@ class AdminProductController extends Controller
                 'status' => 0,
                 'category_id' => $validateData['category_id']
             ]);
-            return redirect()->route('admin.product.index')->with('success', 'Added product successfully');
+            return redirect()
+                ->route('admin.product.index')
+                ->with('success', 'Added product successfully');
         } catch (\Throwable $e) {
             Storage::delete($imagePath);
-            return redirect()->back()->withInput()->withErrors(['error' => 'Error']);
+            return redirect()
+                ->back()
+                ->withInput()
+                ->withErrors(['error' => 'Error']);
         }
     }
 
@@ -95,7 +100,9 @@ class AdminProductController extends Controller
             ]);
             return redirect()->route('admin.product.index');
         } catch (\Throwable $e) {
-            return redirect()->back()->withErrors(['error' => 'Error']);
+            return redirect()
+                ->back()
+                ->withErrors(['error' => 'Error']);
         }
     }
     /**
@@ -148,10 +155,15 @@ class AdminProductController extends Controller
                 'category_id' => $validateData['category_id'],
             ]);
 
-            return redirect()->route('admin.product.index')->with('success', 'Updated product successfully');
+            return redirect()
+                ->route('admin.product.index')
+                ->with('success', 'Updated product successfully');
         } catch (\Throwable $e) {
             Storage::delete($imagePath);
-            return redirect()->back()->withInput()->withErrors(['error' => 'Error']);
+            return redirect()
+                ->back()
+                ->withInput()
+                ->withErrors(['error' => 'Error']);
         }
     }
 
@@ -162,6 +174,8 @@ class AdminProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $product->delete();
-        return redirect()->route('admin.product.index')->with('success', 'Deleted product successfully');
+        return redirect()
+            ->route('admin.product.index')
+            ->with('success', 'Deleted product successfully');
     }
 }

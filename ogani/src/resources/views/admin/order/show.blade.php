@@ -21,15 +21,23 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $stt = 1;
+                            @endphp
+                            @foreach ($orderDetails as $details)
                             <tr>
-                                <td>{{ 1 }}</td>
-                                <td>{{ 82362 }}</td>
-                                <td>{{ "Strawbery" }}</td>
-                                <td><img src="{{ asset('user/img/product/product-4.jpg') }}" alt="" class="rounded object-fit-cover" width="100px" height="100px"></td>
-                                <td>${{ 62 }}</td>
-                                <td>{{ 6 }}</td>
-                                <td>${{ 372 }}</td>
+                                <td>{{ $stt }}</td>
+                                <td>{{ $details->order->order_number }}</td>
+                                <td>{{ $details->product->product_name }}</td>
+                                <td><img src="{{ asset('storage/' . $details->product->image) }}" alt="" class="rounded object-fit-cover" width="100px" height="100px"></td>
+                                <td>${{ formatCurrency($details->price) }}</td>
+                                <td>{{ formatCurrency($details->quantity) }}</td>
+                                <td>${{ formatCurrency($details->total) }}</td>
                             </tr>
+                            @php
+                                $stt ++;
+                            @endphp
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

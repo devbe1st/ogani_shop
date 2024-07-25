@@ -30,7 +30,7 @@
                             <tr>
                                 <td>{{ $stt }}</td>
                                 <td>{{ $product->product_name }}</td>
-                                <td><img src="{{ asset('storage/' . $product->image) }}" width="100px" height="100px" class="rounded object-cover" alt=""></td>
+                                <td><a href="{{ route('admin.product.image.create', ['id' => $product->id]) }}"><img src="{{ asset('storage/' . $product->image) }}" width="100px" height="100px" class="rounded object-cover" alt=""></a></td>
                                 <td>${{ formatCurrency($product->price) }}</td>
                                 <td>{{ formatCurrency($product->discount) }}%</td>
                                 <td>{{ formatCurrency($product->quantity) }}</td>

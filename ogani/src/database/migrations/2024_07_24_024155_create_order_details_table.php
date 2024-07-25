@@ -13,7 +13,6 @@ class CreateOrderDetailsTable extends Migration
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->decimal('price', 10, 2);
             $table->integer('quantity');
-            $table->decimal('total', 10, 2);
             $table->timestamps();
         });
     }

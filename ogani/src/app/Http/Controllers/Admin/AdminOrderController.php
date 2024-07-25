@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 
 class AdminOrderController extends Controller
@@ -12,7 +14,8 @@ class AdminOrderController extends Controller
      */
     public function index()
     {
-        return view('admin.order.index');
+        $orders = Order::all();
+        return view('admin.order.index', compact('orders'));
     }
 
     /**
@@ -36,7 +39,8 @@ class AdminOrderController extends Controller
      */
     public function show(string $id)
     {
-        return view('admin.order.show');
+        $orderDetails = OrderDetail::where('order_id', $id)->get();
+        return view('admin.order.show', compact('orderDetails'));
     }
 
     /**
@@ -54,12 +58,31 @@ class AdminOrderController extends Controller
     {
         //
     }
-
+    /**
+     * Update status
+     */
+    public function updateStatus(Request $request, string $id, string $status)
+    {
+        try {
+            // update
+            $order = Order::findOrFail($id);
+            $order->update([
+                'status' => $status
+            ]);
+            return redirect()->back();
+        } catch (\Throwable $e) {
+            return redirect()->back()->withErrors(['error' => 'Error']);
+        }        
+    }
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $order = Order::findOrFail($id);
+        $order->delete();
+        return redirect()
+            ->back()
+            ->with('success', 'Deleted order successfully');
     }
 }

@@ -2,7 +2,7 @@
 // format number
 if (!function_exists('formatCurrency')) {
     function formatCurrency($amount) {
-        return number_format($amount, 0, ',', '.');
+        return number_format($amount, 2, ',', ',');
     }
 }
 
@@ -48,6 +48,20 @@ if(!function_exists('translateClassStatusCustom')){
             return 'eye-off text-danger';
         }else{
             return 'eye text-success';
+        }
+    }
+}
+// translate class status order
+if(!function_exists('translateClassStatusOrder')){
+    function translateClassStatusOrder($value){
+        if($value === '1'){
+            return 'warning';
+        }elseif($value === '2'){
+            return 'primary';
+        }elseif($value === '3'){
+            return 'success';
+        }else{
+            return "danger";
         }
     }
 }
