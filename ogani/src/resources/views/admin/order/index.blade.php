@@ -53,8 +53,8 @@
                                         <span class="text-muted sr-only">Action</span>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="{{ route('admin.order.show', ['id' => $order->id]) }}">View</a>
-                                        <a class="dropdown-item" href="{{ route('admin.order.destroy', ['id' => $order->id]) }}" onclick="return confirm('Are you sure?')">Delete</a>
+                                        <a class="dropdown-item" href="{{ route('admin.order.show', ['id' => $order->id]) }}"><i class="fe fe-eye fe-12 mr-4"></i> View</a>
+                                        <a class="dropdown-item" href="{{ route('admin.order.destroy', ['id' => $order->id]) }}" onclick="return confirm('Are you sure?')"><i class="fe fe-delete fe-12 mr-4"></i> Delete</a>
                                     </div>
                                 </td>
                             </tr>

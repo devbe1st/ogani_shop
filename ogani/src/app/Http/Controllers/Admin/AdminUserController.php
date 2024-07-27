@@ -32,13 +32,35 @@ class AdminUserController extends Controller
     {
         //
     }
-
+        /**
+     *  Update disale
+     */
+    public function updateDisable(Request $request, string $id){
+        try {
+            $user = User::findOrFail($id);
+            $disable = $user['disable'];
+            if($disable == 0){
+                $newDisable = 1;
+            }else{
+                $newDisable = 0;
+            }
+            $user->update([
+                'disable' => $newDisable
+            ]);
+            return redirect()->route('admin.user.index');
+        } catch (\Throwable $e) {
+            return redirect()
+                ->back()
+                ->withErrors(['error' => 'Error']);
+        }
+    }
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('admin.user.show', compact('user'));
     }
 
     /**
@@ -62,6 +84,10 @@ class AdminUserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()
+            ->route('admin.user.index')
+            ->with('success', 'Deleted user successfully');
     }
 }

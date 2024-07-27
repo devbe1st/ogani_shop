@@ -50,9 +50,10 @@
                             <textarea name="description" id="description" cols="30" rows="10"></textarea>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Create</button>
+                    <button class="btn btn-primary" type="submit"><i class="fe fe-check-circle fe-12"></i> Create</button>
                 </form>
             </div> <!-- /.card-body -->
         </div> <!-- /.card -->
     </div> <!-- /.col -->
 @endsection
+ 

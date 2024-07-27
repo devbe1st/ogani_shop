@@ -36,13 +36,13 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <div class="d-flex" style="gap:10px">
-                                        <a href="{{ route('admin.category.edit', ['id' => $category->id]) }}" class="btn btn-success text-white">Edit</a>
-                                        <form action="{{ route('admin.category.destroy', ['id' => $category->id]) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-danger text-white" onclick="return confirm('Are you sure?')">Delete</button>
-                                        </form>
+                                    <button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="text-muted sr-only">Action</span>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="{{ route('admin.category.edit', ['id' => $category->id]) }}"><i class="fe fe-edit fe-12 mr-4"></i> Edit</a>
+                                        <a class="dropdown-item" href="{{ route('admin.category.destroy', ['id' => $category->id]) }}" onclick="return confirm('Are you sure?')"><i class="fe fe-delete fe-12 mr-4"></i> Delete</a>
                                     </div>
                                 </td>
                             </tr>

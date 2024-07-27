@@ -23,7 +23,7 @@
                         </div> 
                         <img src="{{ asset('storage/' . $category->image) }}" width="200px" class="m-1 rounded" alt=""> 
                     </div>
-                    <button class="btn btn-success text-white mt-2" type="submit">Update</button>
+                    <button class="btn btn-success text-white mt-2" type="submit"><i class="fe fe-check-circle fe-12"></i> Update</button>
                 </form>
             </div> <!-- /.card-body -->
         </div> <!-- /.card -->

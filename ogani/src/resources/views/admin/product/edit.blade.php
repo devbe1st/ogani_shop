@@ -56,7 +56,7 @@
                             </textarea>
                         </div>
                     </div>
-                    <button class="btn btn-success text-white" type="submit">Update</button>
+                    <button class="btn btn-success text-white" type="submit"><i class="fe fe-check-circle fe-12"></i> Update</button>
                 </form>
             </div> <!-- /.card-body -->
         </div> <!-- /.card -->

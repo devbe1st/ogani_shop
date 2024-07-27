@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminEmailController;
 use App\Http\Controllers\Admin\AdminImageController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\AdminProductController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\FavouriteController;
 use App\Http\Controllers\User\ProfileController;
+use App\Models\Email;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -61,11 +63,18 @@ Route::get('/user/checkout', [CheckoutController::class, 'index'])
 Route::prefix('admin-panel')->middleware(['auth', 'admin'])
     ->name('admin.')
     ->group(function () {
+    // start admin 
     Route::get('/', [AdminController::class, 'index'])
         ->name('index');
     // user
     Route::get('/user', [AdminUserController::class, 'index'])
         ->name('user.index');
+    Route::get('/user/{id}/show', [AdminUserController::class, 'show'])
+        ->name('user.show');
+    Route::get('/user/{id}/update-disable', [AdminUserController::class, 'updateDisable'])
+        ->name('user.update-disable');
+    Route::get('/user/{id}', [AdminUserController::class, 'destroy'])
+        ->name('user.destroy');
     // category
     Route::get('/category', [AdminCategoryController::class, 'index'])
         ->name('category.index');
@@ -79,7 +88,7 @@ Route::prefix('admin-panel')->middleware(['auth', 'admin'])
         ->name('category.update');
     Route::put('/category/{id}/update-status', [AdminCategoryController::class, 'updateStatus'])
         ->name('category.update-status');
-    Route::delete('/category/{id}', [AdminCategoryController::class, 'destroy'])
+    Route::get('/category/{id}', [AdminCategoryController::class, 'destroy'])
         ->name('category.destroy');
     // product
     Route::get('/product', [AdminProductController::class, 'index'])
@@ -94,7 +103,7 @@ Route::prefix('admin-panel')->middleware(['auth', 'admin'])
         ->name('product.update');
     Route::put('/product/{id}/update-status', [AdminProductController::class, 'updateStatus'])
         ->name('product.update-status');
-    Route::delete('/product/{id}', [AdminProductController::class, 'destroy'])
+    Route::get('/product/{id}', [AdminProductController::class, 'destroy'])
         ->name('product.destroy');
     // image product
     Route::get('/product/{id}/image/create', [AdminImageController::class, 'create'])
@@ -112,7 +121,14 @@ Route::prefix('admin-panel')->middleware(['auth', 'admin'])
         ->name('order.show');
     Route::get('/order/{id}/destroy', [AdminOrderController::class, 'destroy'])
         ->name('order.destroy');
-    });
+    // email
+    Route::get('/email', [AdminEmailController::class, 'index'])
+        ->name('email.index');
+    Route::get('/email/{id}/show', [AdminEmailController::class, 'show'])
+        ->name('email.show');
+    Route::get('/email/{id}', [AdminEmailController::class, 'destroy'])
+        ->name('email.destroy');
+    }); // end amdin
 /* ---------------------------------- ADMIN --------------------------------- */
 
 

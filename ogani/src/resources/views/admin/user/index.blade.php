@@ -14,13 +14,13 @@
                         <div class="card-body text-center">
                             <div class="avatar avatar-lg mt-4">
                                 <a href="">
-                                    <img src="https://scontent.fdad3-5.fna.fbcdn.net/v/t39.30808-6/355849010_974513270564735_2841773067548577816_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHV6m3QhK-yX3R4TyOA4OMn9jX8heUudH32NfyF5S50fU1QkRcKD-ktdfQjiQRsOV56gTpCYb95Lhrioliimsfu&_nc_ohc=dHAA0BFGDLwQ7kNvgGtgTy_&_nc_ht=scontent.fdad3-5.fna&oh=00_AYA22h5zLR7mqnJwLjzdJNuwWXrbGjV9OJb04PCqGi5WMw&oe=66A64912" alt="..." class="avatar-img rounded-circle">
+                                    <img src="{{ (!empty($user->avatar)) ? $user->avatar : asset('admin/assets/images/profile-default.png') }}" alt="..." class="avatar-img rounded-circle">
                                 </a>
                             </div>
                             <div class="card-text my-2">
                                 <strong class="card-title my-0">{{ $user->name }} </strong>
                                 <p class="small text-muted mb-0">{{ $user->email }}</p>
-                                <p class="small"><span class="badge badge-light text-{{ translateClassRoleAccount($user->role->name) }}">{{ $user->role->name }}</span></p>
+                                <p class="small"><span class="badge badge-light font-weight-bold text-uppercase border text-{{ translateClassRoleAccount($user->role->name) }}">{{ $user->role->name }}</span></p>
                             </div>
                         </div> <!-- ./card-text -->
                         <div class="card-footer">
@@ -37,22 +37,22 @@
                                             <span class="text-muted sr-only">Action</span>
                                         </button>
                                         <div class="dropdown-menu m-2">
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="{{ route('admin.user.show', ['id' => $user->id]) }}">
                                                 <i class="fe fe-meh fe-12 mr-4"></i>
                                                 Profile
                                             </a>
                                             @if ($user->disable === 0)
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="{{ route('admin.user.update-disable', ['id' => $user->id ]) }}">
                                                     <i class="fe fe-lock fe-12 mr-4"></i>
                                                     Disable
                                                 </a>
                                             @else
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="{{ route('admin.user.update-disable', ['id' => $user->id ]) }}">
                                                     <i class="fe fe-unlock fe-12 mr-4"></i>
                                                     Active
                                                 </a>
                                             @endif
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="{{ route('admin.user.destroy', ['id' => $user->id]) }}" onclick="return confirm('Are you sure?')">
                                                 <i class="fe fe-delete fe-12 mr-4"></i>
                                                 Delete
                                             </a>

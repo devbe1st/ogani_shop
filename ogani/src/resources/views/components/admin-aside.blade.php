@@ -59,7 +59,9 @@
                 </a>
                 <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements">
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href="{{ route('admin.user.index') }}"><span class="ml-1 item-text">List</span>
+                        <a class="nav-link pl-3" href="{{ route('admin.user.index') }}">
+                            <i class="fe fe-list fe-12"></i>
+                            <span class="ml-1 item-text">List</span>
                         </a>
                     </li>
                 </ul>
@@ -72,6 +74,7 @@
                 <ul class="collapse list-unstyled pl-4 w-100" id="category">
                     <li class="nav-item">
                         <a class="nav-link pl-3" href="{{ route('admin.category.index') }}">
+                            <i class="fe fe-list fe-12"></i>
                             <span class="ml-1 item-text">
                                 List
                             </span>
@@ -79,6 +82,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pl-3" href="{{ route('admin.category.create') }}">
+                            <i class="fe fe-plus fe-12"></i>
                             <span class="ml-1 item-text">
                                 Add new
                             </span>
@@ -94,6 +98,7 @@
                 <ul class="collapse list-unstyled pl-4 w-100" id="forms">
                     <li class="nav-item">
                         <a class="nav-link pl-3" href="{{ route('admin.product.index') }}">
+                            <i class="fe fe-list fe-12"></i>
                             <span class="ml-1 item-text">
                                 List
                             </span>
@@ -101,6 +106,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pl-3" href="{{ route('admin.product.create') }}">
+                            <i class="fe fe-plus fe-12"></i>
                             <span class="ml-1 item-text">
                                 Add new
                             </span>
@@ -116,6 +122,7 @@
                 <ul class="collapse list-unstyled pl-4 w-100" id="order">
                     <li class="nav-item">
                         <a class="nav-link pl-3" href="{{ route('admin.order.index') }}">
+                            <i class="fe fe-list fe-12"></i>
                             <span class="ml-1 item-text">
                                 List
                             </span>
@@ -131,22 +138,31 @@
                 <ul class="collapse list-unstyled pl-4 w-100" id="blog">
                     <li class="nav-item">
                         <a class="nav-link pl-3" href="">
+                            <i class="fe fe-list fe-12"></i>
                             <span class="ml-1 item-text">List</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pl-3" href="">
+                            <i class="fe fe-plus fe-12"></i>
                             <span class="ml-1 item-text">Add new</span>
                         </a>
                     </li>
                 </ul>
             </li>
             <li class="nav-item w-100">
-                <a class="nav-link" href="">
+                <a href="#email" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                     <i class="fe fe-message-circle fe-16"></i>
                     <span class="ml-3 item-text">Email</span>
-                    <span class="badge badge-pill badge-primary">0</span>
                 </a>
+                <ul class="collapse list-unstyled pl-4 w-100" id="email">
+                    <li class="nav-item">
+                        <a class="nav-link pl-3" href="{{ route('admin.email.index') }}">
+                            <i class="fe fe-list fe-12"></i>
+                            <span class="ml-1 item-text">List</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </nav>

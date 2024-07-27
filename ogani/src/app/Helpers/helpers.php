@@ -65,3 +65,9 @@ if(!function_exists('translateClassStatusOrder')){
         }
     }
 }
+// check role edit information user
+function checkRoleEditInformationUser($authUserId, $userId){
+    if($authUserId !== $userId){
+        return 'disabled';
+    }
+}
