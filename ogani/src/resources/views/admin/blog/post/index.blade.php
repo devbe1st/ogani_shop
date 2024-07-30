@@ -1,7 +1,7 @@
 @extends('layouts.admin')
-@section('title', 'Category List')
+@section('title', 'Post List')
 @section('content')
-    <h2 class="mb-2 page-title">Category List</h2>
+    <h2 class="mb-2 page-title">Post List</h2>
     <div class="row my-4">
         <!-- Small table -->
         <div class="col-md-12">
@@ -12,8 +12,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
                                 <th>Image</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Author</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -22,17 +24,19 @@
                             @php
                                 $stt = 1;
                             @endphp
-                            @foreach ($categories as $category)
+                            @foreach ($posts as $post)
                             <tr>
                                 <td>{{ $stt }}</td>
-                                <td>{{ $category->category_name }}</td>
-                                <td><img src="{{ asset('storage/' . $category->image ) }}" width="100px" height="100px" class="rounded object-fit-cover" alt=""></td>
+                                <td><img src="{{ asset('storage/' . $post->image ) }}" width="100px" height="100px" class="rounded object-cover" alt=""></td>
+                                <td>{{ $post->title }}</td>
+                                <td>{{ $post->category->category_name }}</td>
+                                <td>{{ $post->user->name }}</td>
                                 <td>
-                                    <form action="{{ route('admin.category.update-status', ['id' => $category->id]) }}" method="POST">
+                                    <form action="{{ route('admin.blog.post.update-status', ['id' => $post->id]) }}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                        <input type="hidden" value="{{ $category->status }}" name="status">
-                                        <button class="btn"><span class="fe fe-23 fe-{{ translateClassStatusCustom($category->status) }}" style="font-size: 20px"></span></button>
+                                        <input type="hidden" value="{{ $post->status }}" name="status">
+                                        <button class="btn"><span class="fe fe-23 fe-{{ translateClassStatusCustom($post->status) }}" style="font-size: 20px"></span></button>
                                     </form>
                                 </td>
                                 <td>
@@ -41,8 +45,8 @@
                                         <span class="text-muted sr-only">Action</span>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="{{ route('admin.category.edit', ['id' => $category->id]) }}"><i class="fe fe-edit fe-12 mr-4"></i> Edit</a>
-                                        <a class="dropdown-item" href="{{ route('admin.category.destroy', ['id' => $category->id]) }}" onclick="return confirm('Are you sure?')"><i class="fe fe-delete fe-12 mr-4"></i> Delete</a>
+                                        <a class="dropdown-item" href="{{ route('admin.blog.post.edit', ['id' => $post->id]) }}"><i class="fe fe-edit fe-12 mr-4"></i> Edit</a>
+                                        <a class="dropdown-item" href="{{ route('admin.blog.post.destroy', ['id' => $post->id]) }}" onclick="return confirm('Are you sure?')"><i class="fe fe-delete fe-12 mr-4"></i> Delete</a>
                                     </div>
                                 </td>
                             </tr>

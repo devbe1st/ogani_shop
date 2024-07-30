@@ -6,7 +6,7 @@
     <!-- Categories Section End -->
 
     <!-- Featured Section Begin -->
-    @include('sections.featuredProduct')
+    @include('sections.featured-product')
     <!-- Featured Section End -->
 
     <!-- Banner Begin -->
@@ -29,10 +29,10 @@
     <!-- Banner End -->
 
     <!-- Latest Product Section Begin -->
-    @include('sections.slideProduct')
+    @include('sections.slide-product')
     <!-- Latest Product Section End -->
 
     <!-- Blog Section Begin -->
-    @include('sections.blogIndex')
+    @include('sections.blog-index')
     <!-- Blog Section End -->
 @endsection

@@ -13,4 +13,10 @@ class Category extends Model
         'image',
         'status'
     ];
+    public function products(){
+        return $this->hasMany(Product::class, 'category_id');
+    }
+    public function quantityProduct(){
+        return $this->products()->where(['status' => 1])->count();
+    }
 }

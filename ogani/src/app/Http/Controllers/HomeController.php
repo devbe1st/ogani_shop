@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Models\Post;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -24,7 +27,11 @@ class HomeController extends Controller
      */
     /* ---------------------------------- HOME ---------------------------------- */
     public function index(){
-        return view('home.index');
+        $products = Product::limit(9)->where('status', 1)->get();
+        $adminController = new AdminController();
+        $topSellingProducts = $adminController->topSellingProduct(12, 1);
+        $blogs = Post::limit(3)->where('status', 1)->get();
+        return view('home.index', compact('products', 'topSellingProducts', 'blogs'));
     }
     public function contact(){
         return view('home.contact');

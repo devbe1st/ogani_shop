@@ -130,14 +130,6 @@
                     <ul>
                         <li class="active"><a href="{{ route('home.index') }}">Home</a></li>
                         <li><a href="{{ route('home.shop') }}">Shop</a></li>
-                        <li><a href="#">Pages</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="{{ route('home.shop-details', ['id' => 1 ]) }}">Shop Details</a></li>
-                                <li><a href="{{ route('user.cart') }}">Shoping Cart</a></li>
-                                <li><a href="{{ route('user.checkout') }}">Check Out</a></li>
-                                <li><a href="{{ route('home.blog-details', ['id' => 1 ]) }}">Blog Details</a></li>
-                            </ul>
-                        </li>
                         <li><a href="{{ route('home.blog') }}">Blog</a></li>
                         <li><a href="{{ route('home.contact') }}">Contact</a></li>
                     </ul>

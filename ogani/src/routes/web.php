@@ -1,13 +1,16 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminCategoryBlogController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminEmailController;
 use App\Http\Controllers\Admin\AdminImageController;
 use App\Http\Controllers\Admin\AdminOrderController;
+use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ErrorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\User\CartController;
@@ -128,8 +131,35 @@ Route::prefix('admin-panel')->middleware(['auth', 'admin'])
         ->name('email.show');
     Route::get('/email/{id}', [AdminEmailController::class, 'destroy'])
         ->name('email.destroy');
+    // category blog
+    Route::get('/blog/category', [AdminCategoryBlogController::class, 'index'])
+        ->name('blog.category.index');
+    Route::get('/blog/category/create', [AdminCategoryBlogController::class, 'create'])
+        ->name('blog.category.create');
+    Route::post('/blog/category/store', [AdminCategoryBlogController::class, 'store'])
+        ->name('blog.category.store');
+    Route::get('/blog/category/{id}/edit', [AdminCategoryBlogController::class, 'edit'])
+        ->name('blog.category.edit');
+    Route::put('/blog/category/{id}/update', [AdminCategoryBlogController::class, 'update'])
+        ->name('blog.category.update');
+    Route::put('/blog/category/{id}/update-status', [AdminCategoryBlogController::class, 'updateStatus'])
+        ->name('blog.category.update-status');
+    Route::get('/blog/category/{id}', [AdminCategoryBlogController::class, 'destroy'])
+        ->name('blog.category.destroy');
+    // post
+    Route::get('/blog/post', [AdminPostController::class, 'index'])
+        ->name('blog.post.index');
+    Route::get('/blog/post/create', [AdminPostController::class, 'create'])->name('blog.post.create');
+    Route::post('/blog/post/store', [AdminPostController::class, 'store'])->name('blog.post.store');
+    Route::get('/blog/post/{id}/edit', [AdminPostController::class, 'edit'])->name('blog.post.edit');
+    Route::put('/blog/post/{id}/update', [AdminPostController::class, 'update'])->name('blog.post.update');
+    Route::put('/blog/post/{id}/update-status', [AdminPostController::class, 'updateStatus'])
+        ->name('blog.post.update-status');
+    Route::get('/blog/post/{id}', [AdminPostController::class, 'destroy'])->name('blog.post.destroy');
+    /* ------------------------------------ - ----------------------------------- */
     }); // end amdin
 /* ---------------------------------- ADMIN --------------------------------- */
 
-
-
+/* ---------------------------------- ERROR --------------------------------- */
+Route::get('/404', [ErrorController::class, 'error404'])->name('error.404');
+/* ---------------------------------- ERROR --------------------------------- */

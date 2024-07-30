@@ -1,7 +1,7 @@
 @extends('layouts.admin')
-@section('title', 'Category List')
+@section('title', 'Category Blog List')
 @section('content')
-    <h2 class="mb-2 page-title">Category List</h2>
+    <h2 class="mb-2 page-title">Category Blog List</h2>
     <div class="row my-4">
         <!-- Small table -->
         <div class="col-md-12">
@@ -13,7 +13,6 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Image</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -26,9 +25,8 @@
                             <tr>
                                 <td>{{ $stt }}</td>
                                 <td>{{ $category->category_name }}</td>
-                                <td><img src="{{ asset('storage/' . $category->image ) }}" width="100px" height="100px" class="rounded object-fit-cover" alt=""></td>
                                 <td>
-                                    <form action="{{ route('admin.category.update-status', ['id' => $category->id]) }}" method="POST">
+                                    <form action="{{ route('admin.blog.category.update-status', ['id' => $category->id]) }}" method="POST">
                                         @csrf
                                         @method('PUT')
                                         <input type="hidden" value="{{ $category->status }}" name="status">
@@ -41,8 +39,8 @@
                                         <span class="text-muted sr-only">Action</span>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="{{ route('admin.category.edit', ['id' => $category->id]) }}"><i class="fe fe-edit fe-12 mr-4"></i> Edit</a>
-                                        <a class="dropdown-item" href="{{ route('admin.category.destroy', ['id' => $category->id]) }}" onclick="return confirm('Are you sure?')"><i class="fe fe-delete fe-12 mr-4"></i> Delete</a>
+                                        <a class="dropdown-item" href="{{ route('admin.blog.category.edit', ['id' => $category->id]) }}"><i class="fe fe-edit fe-12 mr-4"></i> Edit</a>
+                                        <a class="dropdown-item" href="{{ route('admin.blog.category.destroy', ['id' => $category->id]) }}" onclick="return confirm('Are you sure?')"><i class="fe fe-delete fe-12 mr-4"></i> Delete</a>
                                     </div>
                                 </td>
                             </tr>

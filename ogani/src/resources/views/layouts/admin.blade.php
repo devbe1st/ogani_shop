@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{{ asset('admin/favicon-admin.png') }}">
+    <link rel="shortcut icon" href="{{ asset('user/img/favicon.png') }}" type="image/x-icon">
     <title>@yield('title', 'Admin Ogani')</title>
     {{-- LINK --}}
     @include('components.admin-link')
@@ -41,6 +41,9 @@
             {{-- NOTIFICATION --}}
             @include('components.admin-notification')
             {{-- NOTIFICATION --}}
+            {{-- LOGOUT MODEL --}}
+            @include('components.admin-logout-model')
+            {{-- LOGOUT MODEL --}}
         </main> <!-- main -->
     </div> <!-- .wrapper -->
     {{-- SCRIPT --}}

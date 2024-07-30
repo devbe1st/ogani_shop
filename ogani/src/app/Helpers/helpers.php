@@ -6,6 +6,20 @@ if (!function_exists('formatCurrency')) {
     }
 }
 
+// lowercase
+if(!function_exists('lowercaseText')){
+    function lowercaseText($text){
+        return strtolower($text);
+    }
+}
+// remove spaces
+if (!function_exists('removeSpaces')) {
+    function removeSpaces($text) {
+        return str_replace(' ', '', $text);
+    }
+}
+
+
 // check disable account
 if(!function_exists('checkDisableAccount')){
     function checkDisableAccount($value){
@@ -66,8 +80,24 @@ if(!function_exists('translateClassStatusOrder')){
     }
 }
 // check role edit information user
-function checkRoleEditInformationUser($authUserId, $userId){
-    if($authUserId !== $userId){
-        return 'disabled';
+if(!function_exists('checkRoleEditInformationUser')){
+    function checkRoleEditInformationUser($authUserId, $userId){
+        if($authUserId !== $userId){
+            return 'disabled';
+        }
+    }
+}
+
+// calc %
+if(!function_exists('calculateDiscountedPrice')){
+    function calculateDiscountedPrice($originalPrice, $discountPercentage)
+    {
+        // Tính số tiền giảm giá
+        $discountAmount = ($originalPrice * $discountPercentage) / 100;
+        
+        // Tính giá sau khi giảm giá
+        $discountedPrice = $originalPrice - $discountAmount;
+        
+        return $discountedPrice;
     }
 }
