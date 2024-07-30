@@ -9,7 +9,6 @@
 + Profile
 + My order
 
-- Lasted SP
 - Lọc SP
 - Lọc Blog
 - Search

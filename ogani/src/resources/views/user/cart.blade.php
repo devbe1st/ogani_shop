@@ -1,5 +1,5 @@
 @extends('layouts.user')
-@section('title', '')
+@section('title', 'Cart')
 @section('content')
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="{{ asset('user/img/breadcrumb.jpg') }}">

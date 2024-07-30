@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Models\Category;
 use App\Models\Image;
 use App\Models\Product;
@@ -17,8 +18,10 @@ class ShopController extends Controller
     }
     public function shop(){
         $products = $this->product->where('status', 1)->get();
+        $adminController = new AdminController();
+        $topSellingProducts = $adminController->topSellingProduct(9, 1);
         $saleProducts = $this->product->where('discount', '>', 0)->where('status', 1)->get();
-        return view('home.shop', compact('products','saleProducts'));
+        return view('home.shop', compact('products', 'saleProducts', 'topSellingProducts'));
     }
     public function shopDetails(string $id){
         $product = Product::where('status', 1)->find($id);
