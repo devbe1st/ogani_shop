@@ -8,3 +8,4 @@
 <script src="{{ asset('user/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('user/js/main.js') }}"></script>
 <script src="{{ asset('user/js/shop.js') }}"></script>
+<script src="{{ asset('user/js/add-to-cart.js') }}"></script>

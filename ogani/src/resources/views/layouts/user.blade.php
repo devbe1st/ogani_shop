@@ -1,4 +1,3 @@
-<!-- resources/views/layouts/user.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,12 +20,15 @@
     @include('components.header')
     @include('components.nav')
     {{-- /* --------------------------------- HEADER --------------------------------- */ --}}
+    
     {{-- /* ---------------------------------- MAIN ---------------------------------- */ --}}
     @yield('content')
     {{-- /* ---------------------------------- MAIN ---------------------------------- */ --}}
+    
     {{-- /* --------------------------------- FOOTER --------------------------------- */ --}}
     @include('components.footer')
     @include('components.script')
+    @include('components.sweet-alert-2')
     {{-- /* --------------------------------- FOOTER --------------------------------- */ --}}
 </body>
 

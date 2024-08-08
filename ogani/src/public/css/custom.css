@@ -1,0 +1,38 @@
+.cart-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-control {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.quantity-control:hover {
+    background-color: #ddd;
+}
+.quantity-control:visited{
+    color: #333;
+}
+
+.quantity-number {
+    margin: 0 10px;
+    font-size: 16px;
+    width: 30px;
+    text-align: center;
+}
+
+.cart_close{
+    color: #333 !important;
+    font-weight: bold !important;
+}

@@ -40,8 +40,9 @@ class AdminOrderController extends Controller
      */
     public function show(string $id)
     {
+        $order = Order::find($id);
         $orderDetails = OrderDetail::where('order_id', $id)->get();
-        return view('admin.order.show', compact('orderDetails'));
+        return view('admin.order.show', compact('orderDetails', 'order'));
     }
 
     /**

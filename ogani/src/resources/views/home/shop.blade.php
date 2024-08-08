@@ -159,7 +159,7 @@
                                                 <ul class="product__item__pic__hover">
                                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                    <li><a href="{{ route('user.cart.add', ['id'=>$saleProduct->id, 'quantity'=>1]) }}"><i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
                                             <div class="product__discount__item__text">
@@ -203,9 +203,9 @@
                                 <div class="product__item">
                                     <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/' . $product->image) }}">
                                         <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i style="transform: translateY(10px)" class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i style="transform: translateY(10px)" class="fa fa-retweet"></i></a></li>
-                                            <li><a href="#"><i style="transform: translateY(10px)" class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                            <li><a href="{{ route('user.cart.add', ['id'=>$product->id, 'quantity'=>1]) }}"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
@@ -217,7 +217,6 @@
                         @endforeach
                     </div>
                     <div class="product__pagination" id="pagination"></div>
-                    
                 </div>
             </div>
         </div>

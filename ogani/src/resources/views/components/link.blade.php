@@ -12,7 +12,9 @@
 <link rel="stylesheet" href="{{ asset('user/css/style.css') }}" type="text/css">
 <link rel="stylesheet" href="{{ asset('user/css/custom.css') }}" type="text/css">
 
+<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
 
 

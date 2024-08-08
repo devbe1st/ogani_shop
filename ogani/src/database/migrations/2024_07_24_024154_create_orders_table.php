@@ -14,6 +14,9 @@ class CreateOrdersTable extends Migration
             $table->string('order_number')->unique();
             $table->decimal('total', 10, 2);
             $table->text('shipping_address');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('note');
             $table->string('payment_method');
             $table->string('status')->default('pending');
             $table->timestamps();

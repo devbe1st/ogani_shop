@@ -17,6 +17,9 @@ class OrderFactory extends Factory
             'order_number' => $this->faker->unique()->numerify('ORD-#####'),
             'total' => $this->faker->randomFloat(2, 20, 500),
             'shipping_address' => $this->faker->address,
+            'phone' => "0366461704",
+            'email' => "nghiadaica@gmail.com",
+            'note' => "...",
             'payment_method' => $this->faker->randomElement(['credit_card', 'paypal', 'cash_on_delivery']),
             'status' => $this->faker->randomElement(['pending', 'completed', 'shipped', 'cancelled']),
         ];

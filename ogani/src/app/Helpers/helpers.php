@@ -79,6 +79,20 @@ if(!function_exists('translateClassStatusOrder')){
         }
     }
 }
+// translate name status order
+if(!function_exists('translateNameStatusOrder')){
+    function translateNameStatusOrder($value){
+        if($value === '1'){
+            return 'Processing';
+        }elseif($value === '2'){
+            return 'Delivering';
+        }elseif($value === '3'){
+            return 'Completed';
+        }else{
+            return "Sent";
+        }
+    }
+}
 // check role edit information user
 if(!function_exists('checkRoleEditInformationUser')){
     function checkRoleEditInformationUser($authUserId, $userId){

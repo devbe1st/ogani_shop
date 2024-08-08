@@ -56,11 +56,12 @@
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input type="text" id="quantity-add-to-cart" value="1">
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="primary-btn">ADD TO CARD</a>
+                        <input type="hidden" id="product-id" value="{{ $product->id }}">
+                        <a href="#" onclick="return addToCart()" class="primary-btn">ADD TO CARD</a>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>

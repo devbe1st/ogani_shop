@@ -43,6 +43,17 @@ Route::get('/shop/{id}/details', [ShopController::class, 'shopDetails'])
     ->name('home.shop-details');
 /* ---------------------------------- SHOP ---------------------------------- */
 
+/* ------------------------------- CART ------------------------------ */
+Route::get('/cart', [CartController::class, 'index'])
+    ->name('user.cart');
+Route::get('/cart/add/{id}/{quantity}', [CartController::class, 'addToCart'])
+    ->name('user.cart.add');
+Route::get('/cart/delete/{id}', [CartController::class, 'deleteCart'])
+    ->name('user.cart.delete');
+Route::get('/cart/control/{id}/{action}', [CartController::class, 'quantityControl'])
+    ->name('user.cart-control');
+/* ------------------------------- CART ------------------------------ */
+
 /* ---------------------------------- BLOG ---------------------------------- */
 Route::get('/blog', [BlogController::class, 'blog'])
     ->name('home.blog');
@@ -51,15 +62,15 @@ Route::get('/blog/{id}/details', [BlogController::class, 'blogDetails'])
 /* ---------------------------------- BLOG ---------------------------------- */
 
 /* ---------------------------------- USER ---------------------------------- */
-Route::get('/user/profile', [ProfileController::class, 'index'])
+Route::get('/profile', [ProfileController::class, 'index'])
     ->name('user.profile')->middleware('auth');
-Route::get('/user/favourite', [FavouriteController::class, 'index'])
+Route::get('/favourite', [FavouriteController::class, 'index'])
     ->name('user.favourite');
-Route::get('/user/cart', [CartController::class, 'index'])
-    ->name('user.cart');
-Route::get('/user/checkout', [CheckoutController::class, 'index'])
+Route::get('/checkout', [CheckoutController::class, 'index'])
     ->name('user.checkout')
     ->middleware('auth');
+Route::post('/checkout/process', [CheckoutController::class, 'process'])
+    ->name('user.checkout.process');
 /* ---------------------------------- USER ---------------------------------- */
 
 /* ---------------------------------- ADMIN --------------------------------- */
